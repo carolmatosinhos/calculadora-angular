@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-calc',
@@ -7,12 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CalcComponent implements OnInit {
 
-  @Input() numberone: number = 0
-  @Input() numbertwo: number = 0
-  resultado: any = '';
+  numberone: number = 0;
+  numbertwo: number = 0;
+  resultado: any = 0;
 
-  onSomar(){
-   this.resultado = this.numberone + this.numbertwo;
+  @ViewChild('numberOne') campoUm!: ElementRef;
+  @ViewChild('numberTwo') campoDois!: ElementRef;
+
+  onSomar() {
+    this.resultado = Number(this.campoUm.nativeElement.value) + Number(this.campoDois.nativeElement.value);
   }
 
   constructor() { }

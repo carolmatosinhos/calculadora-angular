@@ -1,8 +1,16 @@
 <h2>Calculadora</h2>
 
-<div>
-  <input type="text" name="numberone"> +
-  <input type="text" name="numbertwo"> <span> </span>
-  <button type="button" (click)="onSomar">Somar</button>
-  <div>{{resultado}}</div>
+<div class="row">
+  <div class="col-md-2">
+    <input type="text" name="numberone" [value]="numberone" #numberOne class="form-control">
+  </div>+
+  <div class="col-md-2">
+    <input type="text" name="numbertwo" [value]="numbertwo" #numberTwo class="form-control">
+  </div> =
+
+  <div class="col res">{{resultado}}
+
+    <button type="button" class="btn btn-primary soma" [value]="resultado" (click)="onSomar()">Somar</button>
+  </div>
 </div>
+<br>
